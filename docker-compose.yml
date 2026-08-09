@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  web:
+    image: nginx:alpine
+    container_name: luxform_web
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      # Прокидаємо всі HTML/CSS файли в Nginx
+      - ./:/usr/share/nginx/html:ro
+      # Прокидаємо конфіг
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
