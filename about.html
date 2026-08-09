@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Про нас — LUXFORM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">LUX<span>FORM</span></a>
+            <button class="mobile-btn" onclick="toggleNav()">☰</button>
+            <nav class="nav" id="nav">
+                <a href="index.html">Головна</a>
+                <a href="about.html" class="active">Про нас</a>
+                <a href="projects.html">Реалізовані проєкти</a>
+                <a href="contacts.html">Контакти</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Title / Hero Header -->
+    <section class="hero" style="padding: 160px 0 60px;">
+        <div class="container">
+            <span class="sub">Власне виробництво • Київ</span>
+            <h1>Про майстерню LuxForm</h1>
+            <p>Створюємо авторські м'які меблі, пуфи та стінові панелі за індивідуальними проєктами з увагою до найменших деталей.</p>
+        </div>
+    </section>
+
+    <!-- Основний блок про компанію -->
+    <section class="section">
+        <div class="container">
+            <div class="grid-2">
+                <div>
+                    <span class="sub">Хто ми такі</span>
+                    <h2 style="font-size: 32px; font-weight: 800; margin-bottom: 20px;">Втілюємо дизайнерські ідеї у реальні меблеві витвори</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 15px;">
+                        Фабрика <strong>LuxForm</strong> спеціалізується на виготовленні корпусних та м'яких меблів преміум-сегменту за індивідуальними розмірами. Ми працюємо як із готовими дизайн-проєктами, так і допомагаємо розробити креслення з нуля під особливості вашого приміщення.
+                    </p>
+                    <p style="color: var(--text-muted); margin-bottom: 25px;">
+                        Основна перевага нашого виробництва — повний цикл: від підбору сухого брусу та зносостійких тканин до ювелірної точності збірки та професійного монтажу у вас на об'єкті.
+                    </p>
+                    <a href="projects.html" class="btn btn-dark">Переглянути роботи</a>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" alt="Виробництво LuxForm" style="border: 1px solid var(--border-color); width: 100%;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Цифри / Переваги -->
+    <section class="section" style="background: var(--bg-alt);">
+        <div class="container">
+            <div class="sec-head">
+                <span class="sub">Наші досягнення</span>
+                <h2>LuxForm у цифрах</h2>
+            </div>
+            <div class="grid-4">
+                <div class="review-card" style="text-align: center;">
+                    <h3 style="font-size: 42px; font-weight: 900; margin-bottom: 5px;">8+</h3>
+                    <p style="font-size: 13px; color: var(--text-muted);">Років досвіду на ринку України</p>
+                </div>
+                <div class="review-card" style="text-align: center;">
+                    <h3 style="font-size: 42px; font-weight: 900; margin-bottom: 5px;">500+</h3>
+                    <p style="font-size: 13px; color: var(--text-muted);">Реалізованих об'єктів та проєктів</p>
+                </div>
+                <div class="review-card" style="text-align: center;">
+                    <h3 style="font-size: 42px; font-weight: 900; margin-bottom: 5px;">400+</h3>
+                    <p style="font-size: 13px; color: var(--text-muted);">Видів тканин та текстур у зразках</p>
+                </div>
+                <div class="review-card" style="text-align: center;">
+                    <h3 style="font-size: 42px; font-weight: 900; margin-bottom: 5px;">100%</h3>
+                    <p style="font-size: 13px; color: var(--text-muted);">Гарантія якості на каркаси</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок для Дизайнерів та Архітекторів -->
+    <section class="section">
+        <div class="container">
+            <div class="grid-2">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Співпраця з дизайнерами" style="border: 1px solid var(--border-color); width: 100%;">
+                </div>
+                <div>
+                    <span class="sub">Партнерство</span>
+                    <h2 style="font-size: 32px; font-weight: 800; margin-bottom: 20px;">Дизайнерам та Архітекторам</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 15px;">
+                        Ми відкриті до плідної співпраці із студіями дизайну та приватними архітекторами. Беріть у роботу нестандартні геометрії та складні вироби — ми візьмемо на себе всі технічні розрахунки та реалізацію.
+                    </p>
+                    <ul style="list-style: none; margin-bottom: 25px; color: var(--text-dark); font-size: 14px;">
+                        <li style="margin-bottom: 8px;"><i class="fas fa-check" style="margin-right: 10px; color: #888;"></i> Точне дотримання ваших 3D-візуалізацій</li>
+                        <li style="margin-bottom: 8px;"><i class="fas fa-check" style="margin-right: 10px; color: #888;"></i> Надання зразків тканин та наповнювачів</li>
+                        <li style="margin-bottom: 8px;"><i class="fas fa-check" style="margin-right: 10px; color: #888;"></i> Спеціальні партнерські умови та виплати</li>
+                    </ul>
+                    <a href="contacts.html" class="btn btn-out">Стати партнером</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-main">
+        <div class="container">
+            <div class="footer-grid">
+
+                <div>
+                    <a href="index.html" class="footer-logo">LUX<span>FORM</span></a>
+                    <p class="footer-desc">Крафтова майстерня з виготовлення м'яких меблів, пуфів, банкеток та стінових панелей за індивідуальними кресленнями.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Навігація</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Головна</a></li>
+                        <li><a href="about.html">Про майстерню</a></li>
+                        <li><a href="projects.html">Портфоліо</a></li>
+                        <li><a href="contacts.html">Контакти</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Продукція</h4>
+                    <ul class="footer-links">
+                        <li><a href="projects.html">Пуфи та банкетки</a></li>
+                        <li><a href="projects.html">М'які панелі</a></li>
+                        <li><a href="projects.html">Ліжка на замовлення</a></li>
+                        <li><a href="projects.html">Дивани</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col footer-contacts">
+                    <h4>Зв'язок</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> м. Київ, Україна</p>
+                    <p><i class="fas fa-phone-alt"></i> +380 (XX) XXX-XX-XX</p>
+                    <p><i class="fab fa-instagram"></i> Direct: @luxform.ua</p>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 LUXFORM. Всі права захищені.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>function toggleNav(){document.getElementById('nav').classList.toggle('active');}</script>
+</body>
+</html>

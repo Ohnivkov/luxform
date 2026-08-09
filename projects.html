@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Реалізовані проєкти — LUXFORM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            padding: 10px 20px;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--text-dark);
+            color: #fff;
+            border-color: var(--text-dark);
+        }
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        .portfolio-card {
+            border: 1px solid var(--border-color);
+            background: #fff;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .portfolio-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        .portfolio-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+        }
+        .portfolio-body {
+            padding: 25px;
+        }
+        .portfolio-cat {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            display: block;
+        }
+        .portfolio-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .portfolio-desc {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">LUX<span>FORM</span></a>
+            <button class="mobile-btn" onclick="toggleNav()">☰</button>
+            <nav class="nav" id="nav">
+                <a href="index.html">Головна</a>
+                <a href="about.html">Про нас</a>
+                <a href="projects.html" class="active">Реалізовані проєкти</a>
+                <a href="contacts.html">Контакти</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" style="padding: 160px 0 60px;">
+        <div class="container">
+            <span class="sub">Портфоліо майстерні</span>
+            <h1>Наші реалізовані проєкти</h1>
+            <p>Приклади авторських м'яких меблів, панелей та банкеток, виготовлених за індивідуальними кресленнями.</p>
+        </div>
+    </section>
+
+    <!-- Галерея проєктів -->
+    <section class="section">
+        <div class="container">
+            
+            <!-- Кнопки фільтрації -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterProjects('all')">Всі роботи</button>
+                <button class="filter-btn" onclick="filterProjects('panels')">М'які панелі</button>
+                <button class="filter-btn" onclick="filterProjects('pufs')">Пуфи та банкетки</button>
+                <button class="filter-btn" onclick="filterProjects('beds')">Ліжка</button>
+            </div>
+
+            <!-- Сітка виробів -->
+            <div class="portfolio-grid">
+
+                <div class="portfolio-card" data-cat="panels">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80" alt="Стінова панель" class="portfolio-img">
+                    <div class="portfolio-body">
+                        <span class="portfolio-cat">М'які панелі</span>
+                        <h3 class="portfolio-title">Геометрична панель у спальню</h3>
+                        <p class="portfolio-desc">Використано велюр преміум-сегменту з брудовідштовхувальним покриттям та інтегрованим LED-підсвічуванням.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-cat="pufs">
+                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80" alt="Пуф з нішею" class="portfolio-img">
+                    <div class="portfolio-body">
+                        <span class="portfolio-cat">Пуфи та банкетки</span>
+                        <h3 class="portfolio-title">Банкетка в передпокій</h3>
+                        <p class="portfolio-desc">Каркас із сухого бруса, тканина букле, вбудована ніша для зберігання з мікроліфтами.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-cat="beds">
+                    <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80" alt="Ліжко" class="portfolio-img">
+                    <div class="portfolio-body">
+                        <span class="portfolio-cat">Ліжка</span>
+                        <h3 class="portfolio-title">Авторське ліжко LuxBed</h3>
+                        <p class="portfolio-desc">М'яке узголів'я із вертикальною утяжкою та підйомним механізмом на газових амортизаторах.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-cat="panels">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Панель кабінет" class="portfolio-img">
+                    <div class="portfolio-body">
+                        <span class="portfolio-cat">М'які панелі</span>
+                        <h3 class="portfolio-title">Панелі для домашнього кабінету</h3>
+                        <p class="portfolio-desc">Звукоізоляційні м'які модулі з еко-шкіри для створення робочої атмосфери та акустичного комфорту.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-cat="pufs">
+                    <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=800&q=80" alt="Дизайнерський пуф" class="portfolio-img">
+                    <div class="portfolio-body">
+                        <span class="portfolio-cat">Пуфи та банкетки</span>
+                        <h3 class="portfolio-title">Круглий пуф-акцент</h3>
+                        <p class="portfolio-desc">Яскравий дизайнерський пуф для вітальні, виготовлений у зносостійкому шенілі.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-cat="panels">
+                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80" alt="М'яка зона" class="portfolio-img">
+                    <div class="portfolio-body">
+                        <span class="portfolio-cat">М'які панелі</span>
+                        <h3 class="portfolio-title">М'яка стіна в дитячу</h3>
+                        <p class="portfolio-desc">Безпечні гіпоалергенні матеріали, м'яке наповнення, розроблене за індивідуальними розмірами стіни.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Перехід в Instagram для перегляду більше робіт -->
+            <div style="text-align: center; margin-top: 50px;">
+                <span class="sub" style="display: block; margin-bottom: 10px;">Хочете побачити більше процесів та відеооглядів?</span>
+                <a href="https://www.instagram.com/master.puf/" target="_blank" class="btn btn-dark">
+                    <i class="fab fa-instagram" style="margin-right: 8px;"></i> Дивитися всі роботи в Instagram
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-main">
+        <div class="container">
+            <div class="footer-grid">
+
+                <div>
+                    <a href="index.html" class="footer-logo">LUX<span>FORM</span></a>
+                    <p class="footer-desc">Крафтова майстерня з виготовлення м'яких меблів, пуфів, банкеток та стінових панелей за індивідуальними кресленнями.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Навігація</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Головна</a></li>
+                        <li><a href="about.html">Про майстерню</a></li>
+                        <li><a href="projects.html">Портфоліо</a></li>
+                        <li><a href="contacts.html">Контакти</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Продукція</h4>
+                    <ul class="footer-links">
+                        <li><a href="projects.html">Пуфи та банкетки</a></li>
+                        <li><a href="projects.html">М'які панелі</a></li>
+                        <li><a href="projects.html">Ліжка на замовлення</a></li>
+                        <li><a href="projects.html">Дивани</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col footer-contacts">
+                    <h4>Зв'язок</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> пр-т Леся Курбаса, 2Б, Київ, 03162</p>
+                    <p><i class="fas fa-phone-alt"></i> +380 (XX) XXX-XX-XX</p>
+                    <p><i class="fab fa-instagram"></i> Direct: @luxform.ua</p>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 LUXFORM. Всі права захищені.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleNav(){
+            document.getElementById('nav').classList.toggle('active');
+        }
+
+        function filterProjects(cat) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            const cards = document.querySelectorAll('.portfolio-card');
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            cards.forEach(card => {
+                if (cat === 'all' || card.getAttribute('data-cat') === cat) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
