@@ -17,7 +17,7 @@
         }
         .filter-btn {
             background: transparent;
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--border-color, #e0e0e0);
             padding: 10px 20px;
             font-family: inherit;
             font-size: 13px;
@@ -26,9 +26,9 @@
             transition: all 0.3s ease;
         }
         .filter-btn.active, .filter-btn:hover {
-            background: var(--text-dark);
+            background: var(--text-dark, #111);
             color: #fff;
-            border-color: var(--text-dark);
+            border-color: var(--text-dark, #111);
         }
         .portfolio-grid {
             display: grid;
@@ -36,10 +36,15 @@
             gap: 30px;
         }
         .portfolio-card {
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--border-color, #eee);
             background: #fff;
             overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+            opacity: 1;
+        }
+        .portfolio-card.hide {
+            display: none;
+            opacity: 0;
         }
         .portfolio-card:hover {
             transform: translateY(-5px);
@@ -59,7 +64,7 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            color: var(--text-muted);
+            color: var(--text-muted, #888);
             margin-bottom: 8px;
             display: block;
         }
@@ -96,7 +101,7 @@
         <div class="container">
             <span class="sub">Портфоліо майстерні</span>
             <h1>Наші реалізовані проєкти</h1>
-            <p>Приклади авторських м'яких меблів, панелей та банкеток, виготовлених за індивідуальними кресленнями.</p>
+            <p>Приклади авторських м'яких меблів, стінових панелей, ліжок та диванів, виготовлених за індивідуальними кресленнями.</p>
         </div>
     </section>
 
@@ -106,72 +111,78 @@
             
             <!-- Кнопки фільтрації -->
             <div class="filter-buttons">
-                <button class="filter-btn active" onclick="filterProjects('all')">Всі роботи</button>
-                <button class="filter-btn" onclick="filterProjects('panels')">М'які панелі</button>
-                <button class="filter-btn" onclick="filterProjects('pufs')">Пуфи та банкетки</button>
-                <button class="filter-btn" onclick="filterProjects('beds')">Ліжка</button>
+                <button class="filter-btn active" onclick="filterProjects(event, 'all')">Всі роботи</button>
+                <button class="filter-btn" onclick="filterProjects(event, 'panels')">М'які панелі</button>
+                <button class="filter-btn" onclick="filterProjects(event, 'sofas')">Дивани</button>
+                <button class="filter-btn" onclick="filterProjects(event, 'beds')">Ліжка</button>
             </div>
 
-            <!-- Сітка виробів -->
+            <!-- Сітка нових виробів -->
             <div class="portfolio-grid">
 
-                <div class="portfolio-card" data-cat="panels">
-                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80" alt="Стінова панель" class="portfolio-img">
-                    <div class="portfolio-body">
-                        <span class="portfolio-cat">М'які панелі</span>
-                        <h3 class="portfolio-title">Геометрична панель у спальню</h3>
-                        <p class="portfolio-desc">Використано велюр преміум-сегменту з брудовідштовхувальним покриттям та інтегрованим LED-підсвічуванням.</p>
-                    </div>
-                </div>
-
-                <div class="portfolio-card" data-cat="pufs">
-                    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80" alt="Пуф з нішею" class="portfolio-img">
-                    <div class="portfolio-body">
-                        <span class="portfolio-cat">Пуфи та банкетки</span>
-                        <h3 class="portfolio-title">Банкетка в передпокій</h3>
-                        <p class="portfolio-desc">Каркас із сухого бруса, тканина букле, вбудована ніша для зберігання з мікроліфтами.</p>
-                    </div>
-                </div>
-
+                <!-- 1. Дитяче ліжко «Ракета» -->
                 <div class="portfolio-card" data-cat="beds">
-                    <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80" alt="Ліжко" class="portfolio-img">
+                    <img src="images/photo_2026-08-09_17-46-43.jpg" alt="Дитяче ліжко Ракета" class="portfolio-img">
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">Ліжка</span>
-                        <h3 class="portfolio-title">Авторське ліжко LuxBed</h3>
-                        <p class="portfolio-desc">М'яке узголів'я із вертикальною утяжкою та підйомним механізмом на газових амортизаторах.</p>
+                        <span class="portfolio-cat">Ліжка / Дитячі</span>
+                        <h3 class="portfolio-title">Тематичне дитяче ліжко «Ракета»</h3>
+                        <p class="portfolio-desc">Авторське дитяче ліжко з фігурним м'яким узголів'ям у формі ракети з ілюмінаторами, бічними бортиками та підйомним ортопедичним каркасом.</p>
                     </div>
                 </div>
 
+                <!-- 2. Модульна дитяча зона відпочинку -->
+                <div class="portfolio-card" data-cat="sofas">
+                    <img src="images/photo_2026-08-09_17-46-39.jpg" alt="Модульний диван у дитячу" class="portfolio-img">
+                    <div class="portfolio-body">
+                        <span class="portfolio-cat">Дивани / Дитячі</span>
+                        <h3 class="portfolio-title">Модульний кутовий тахтан-диван</h3>
+                        <p class="portfolio-desc">Низькопрофільний м'який куточок у затишну дитячу кімнату із фактурною стьобаною основою та ортопедичним матрацом.</p>
+                    </div>
+                </div>
+
+                <!-- 3. Фіолетова м'яка стінова панель для кабінету -->
                 <div class="portfolio-card" data-cat="panels">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Панель кабінет" class="portfolio-img">
+                    <img src="images/photo_2026-08-09_17-46-18.jpg" alt="М'яка панель для робочого кабінету" class="portfolio-img">
                     <div class="portfolio-body">
                         <span class="portfolio-cat">М'які панелі</span>
-                        <h3 class="portfolio-title">Панелі для домашнього кабінету</h3>
-                        <p class="portfolio-desc">Звукоізоляційні м'які модулі з еко-шкіри для створення робочої атмосфери та акустичного комфорту.</p>
+                        <h3 class="portfolio-title">Акустична стінова панель у кабінет</h3>
+                        <p class="portfolio-desc">Ексклюзивна стінова панель з асиметричними геометричними лініями, світлодіодним підсвічуванням та інтегрованою робочою консоллю.</p>
                     </div>
                 </div>
 
-                <div class="portfolio-card" data-cat="pufs">
-                    <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=800&q=80" alt="Дизайнерський пуф" class="portfolio-img">
+                <!-- 4. Спальний гарнітур із геометричною панеллю -->
+                <div class="portfolio-card" data-cat="beds">
+                    <img src="images/photo_2026-08-09_17-46-16.jpg" alt="Спальне ліжко з м'якою стіною" class="portfolio-img">
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">Пуфи та банкетки</span>
-                        <h3 class="portfolio-title">Круглий пуф-акцент</h3>
-                        <p class="portfolio-desc">Яскравий дизайнерський пуф для вітальні, виготовлений у зносостійкому шенілі.</p>
+                        <span class="portfolio-cat">Ліжка / М'які панелі</span>
+                        <h3 class="portfolio-title">Ліжко з геометричною стіновою панеллю</h3>
+                        <p class="portfolio-desc">М'яке двоспальне ліжко в насиченому бузковому кольорі, поєднане з високою стіновою панеллю та вбудованим освітленням.</p>
                     </div>
                 </div>
 
-                <div class="portfolio-card" data-cat="panels">
-                    <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80" alt="М'яка зона" class="portfolio-img">
+                <!-- 5. Смарагдовий кутовий диван Luxe -->
+                <div class="portfolio-card" data-cat="sofas">
+                    <img src="images/photo_2026-08-09_17-46-10.jpg" alt="Смарагдовий кутовий диван" class="portfolio-img">
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">М'які панелі</span>
-                        <h3 class="portfolio-title">М'яка стіна в дитячу</h3>
-                        <p class="portfolio-desc">Безпечні гіпоалергенні матеріали, м'яке наповнення, розроблене за індивідуальними розмірами стіни.</p>
+                        <span class="portfolio-cat">Дивани</span>
+                        <h3 class="portfolio-title">Смарагдовий кутовий диван Luxe</h3>
+                        <p class="portfolio-desc">Преміальний диван у глибокому смарагдовому велюрі з декоративним ромбоподібним стебнуванням на підлокітниках та золотим цоколем.</p>
+                    </div>
+                </div>
+
+                <!-- 6. Двоспальне ліжко з панеллю «Ялинка» -->
+                <div class="portfolio-card" data-cat="beds">
+                    <img src="images/photo_2026-08-09_17-46-06.jpg" alt="Ліжко з узголів'ям ялинка" class="portfolio-img">
+                    <div class="portfolio-body">
+                        <span class="portfolio-cat">Ліжка / М'які панелі</span>
+                        <h3 class="portfolio-title">Двоспальне ліжко «Chevron Panel»</h3>
+                        <p class="portfolio-desc">Сучасний спальний гарнітур у бежевих тонах із високим м'яким узголів'ям із візерунком «ялинка» та вбудованими світловими акцентами.</p>
                     </div>
                 </div>
 
             </div>
 
-            <!-- Перехід в Instagram для перегляду більше робіт -->
+            <!-- Перехід в Instagram -->
             <div style="text-align: center; margin-top: 50px;">
                 <span class="sub" style="display: block; margin-bottom: 10px;">Хочете побачити більше процесів та відеооглядів?</span>
                 <a href="https://www.instagram.com/master.puf/" target="_blank" class="btn btn-dark">
@@ -189,7 +200,7 @@
 
                 <div>
                     <a href="index.html" class="footer-logo">LUX<span>FORM</span></a>
-                    <p class="footer-desc">Крафтова майстерня з виготовлення м'яких меблів, пуфів, банкеток та стінових панелей за індивідуальними кресленнями.</p>
+                    <p class="footer-desc">Крафтова майстерня з виготовлення м'яких меблів, пуфів, банкеток, диванів та стінових панелей за індивідуальними кресленнями.</p>
                 </div>
 
                 <div class="footer-col">
@@ -205,10 +216,10 @@
                 <div class="footer-col">
                     <h4>Продукція</h4>
                     <ul class="footer-links">
-                        <li><a href="projects.html">Пуфи та банкетки</a></li>
+                        <li><a href="projects.html">Дивани</a></li>
                         <li><a href="projects.html">М'які панелі</a></li>
                         <li><a href="projects.html">Ліжка на замовлення</a></li>
-                        <li><a href="projects.html">Дивани</a></li>
+                        <li><a href="projects.html">Пуфи та банкетки</a></li>
                     </ul>
                 </div>
 
@@ -232,18 +243,18 @@
             document.getElementById('nav').classList.toggle('active');
         }
 
-        function filterProjects(cat) {
+        function filterProjects(event, cat) {
             const buttons = document.querySelectorAll('.filter-btn');
             const cards = document.querySelectorAll('.portfolio-card');
 
             buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            event.currentTarget.classList.add('active');
 
             cards.forEach(card => {
                 if (cat === 'all' || card.getAttribute('data-cat') === cat) {
-                    card.style.display = 'block';
+                    card.classList.remove('hide');
                 } else {
-                    card.style.display = 'none';
+                    card.classList.add('hide');
                 }
             });
         }
