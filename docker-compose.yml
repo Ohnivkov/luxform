@@ -6,7 +6,7 @@ services:
     container_name: luxform_web
     restart: always
     ports:
-      - "80:80"
+      - "8090:80"
     volumes:
       # Прокидаємо всі HTML/CSS файли в Nginx
       - ./:/usr/share/nginx/html:ro
