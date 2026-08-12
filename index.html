@@ -10,22 +10,23 @@
     <style>
         /* Блок першого екрана з фіксованим фоном суворо всередині себе */
         .hero-banner {
-            position: relative;
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #ffffff;
-            padding: 140px 20px 80px;
-            /* Фіксуємо фон тільки для цього блоку */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                              url('images/image_main.png');
-            background-attachment: fixed;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
+    position: relative;
+    min-height: 100vh; /* Збільшуємо висоту на весь екран, щоб вмістилося ліжко */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ffffff;
+    padding: 120px 20px 60px;
+    
+    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.55)), 
+                      url('images/image_main2.png');
+    background-attachment: fixed;
+    /* Зсуваємо фотографію так, щоб показати її нижню частину */
+    background-position: center 80%; 
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
         .hero-content {
             max-width: 850px;
