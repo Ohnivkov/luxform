@@ -64,7 +64,10 @@
     <!-- Header -->
     <header class="header">
         <div class="container header-container">
-            <a href="index.html" class="logo">MIO<span>FORM</span></a>
+            <a href="index.html" class="logo logo-brand">
+                <span class="logo-main"><strong>MIO</strong><span>FORM</span></span>
+                <span class="logo-sub">АВТОРСЬКА МАЙСТЕРНЯ | CUSTOM UPHOLSTERED FURNITURE</span>
+            </a>
             <button class="mobile-btn" onclick="toggleNav()">☰</button>
             <nav class="nav" id="nav">
                 <a href="index.html" class="active">Головна</a>
@@ -82,7 +85,7 @@
         Власне виробництво • Київ & Доставка по Україні
     </span>
     <h1 style = "opacity: 0.35;">Виготовлення м'яких меблів та панелей за індивідуальними проєктами</h1>
-    <p>Втілюємо в життя задуми архітекторів та господарів: від вишуканих пуфів і банкеток до масштабних м'яких панелей у спальню чи кабінет.</p>
+    <p>Втілюємо в життя задуми дизайнерів та господарів: від вишуканих пуфів і банкеток до масштабних м'яких панелей у спальню чи кабінет.</p>
     
     <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
         <a href="https://t.me" target="_blank" class="btn btn-dark" style="font-size: 15px; padding: 16px 32px; background: #ffffff; color: #111111;">
@@ -125,22 +128,101 @@
             </div>
         </section>
 
-        <!-- Google Відгуки (Elfsight) -->
+        <!-- Відгуки клієнтів -->
         <section class="section" style="background: var(--bg-alt);">
             <div class="container">
                 <div class="sec-head">
                     <span class="sub">Живі відгуки</span>
+                    <h2>Що кажуть наші клієнти</h2>
                 </div>
 
-                <!-- Ваш віджет Elfsight -->
-                <script src="https://elfsightcdn.com/platform.js" async></script>
-                <div class="elfsight-app-b3c6b068-cf2d-484c-863d-5ba8c4c22e93" data-elfsight-app-lazy></div>
+                <div class="reviews-grid">
+                    <!-- Відгук 1 -->
+                    <div class="review-card">
+                        <div>
+                            <div class="review-header">
+                                <div class="review-author-name">Денис М.</div>
+                                <div class="review-date">24.02.2024</div>
+                            </div>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="review-text">Замовляли у хлопців прихожу, два ліжка з матрацами і стінові панелі. Залишились дуже задоволеними термінами і якістю виконаних робіт. Все просто на висоті, комунікація, корисні ідеї та поради основані на великому досвіді!, якість використаних матеріалів, ТЗ, креслення та монтаж! Найкраще співвідношення ціна-якість. Дуже задоволені співпрацею! Однозначно рекомендуємо!!! Дякуємо Вам хлопці за сумлінну роботу, успіхів Вам та процвітання!</p>
+                        </div>
+                        <div class="review-tags">
+                            <span>Гарне обслуговування</span>
+                            <span>Актуальний опис</span>
+                            <span>Швидко зв'язались</span>
+                            <span>Швидко відправили</span>
+                            <span>Ввічливий продавець</span>
+                            <span>Актуальна ціна</span>
+                        </div>
+                    </div>
 
-                <div style="text-align: center; margin-top: 40px;">
-                    <a href="https://share.google/SKDwVASkI9eC6S19g" target="_blank" class="btn btn-dark">
-                        <i class="fab fa-google" style="margin-right: 8px;"></i> Читати всі відгуки в Google Maps
-                    </a>
+                    <!-- Відгук 2 -->
+                    <div class="review-card">
+                        <div>
+                            <div class="review-header">
+                                <div class="review-author-name">Яна О.</div>
+                                <div class="review-date">11.11.2024</div>
+                            </div>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="review-text">Замовляла м’які панелі на стіну в спальню. Перш за все хочу відмітити професіоналізм продавця, бо одразу при зверненні мені надали консультацію та допомогли з вибором тканини (їх в них до речі дуже багато, на будь-який смак). Ще одна велика перевага - втілити можуть абсолютно кожне бажання замовника, достатньо лише картинки з пінтерест). Терміни виготовлення були дотримані, встановили навіть трохи раніше, ніж обіцяли. Тому однозначно рекомендую цю компанію, роблять дійсно дуже якісно, а ще й дуже приємні люди)</p>
+                        </div>
+                        <div class="review-tags">
+                            <span>Гарне обслуговування</span>
+                            <span>Ввічливий продавець</span>
+                            <span>Актуальна ціна</span>
+                        </div>
+                    </div>
+
+                    <!-- Відгук 3 -->
+                    <div class="review-card">
+                        <div>
+                            <div class="review-header">
+                                <div class="review-author-name">Анна С.</div>
+                                <div class="review-date">19.09.2025</div>
+                            </div>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="review-text">Дуже задоволена співпрацею! Виготовляли пуфи та м’які стіни ) Все зробили дуже швидко та якісно ) Чують побажання клієнта, цінують свій та ваш час!) все швидко, вчасно та дуже гарно ) з впевненістю можу рекомендувати!))</p>
+                        </div>
+                        <div class="review-tags">
+                            <span>Гарне обслуговування</span>
+                            <span>Актуальний опис</span>
+                            <span>Швидко відправили</span>
+                            <span>Ввічливий продавець</span>
+                            <span>Актуальна ціна</span>
+                        </div>
+                    </div>
+
+                    <!-- Відгук 4 -->
+                    <div class="review-card">
+                        <div>
+                            <div class="review-header">
+                                <div class="review-author-name">Наталія К.</div>
+                                <div class="review-date">06.05.2025</div>
+                            </div>
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="review-text">Відмінне обслуговування! Одразу зв’язалися, надали необхідну консультацію для узгодження замовлення. Супер швидке виконання та бездоганна якість товару! Дуже вдячна!</p>
+                        </div>
+                        <div class="review-tags">
+                            <span>Гарне обслуговування</span>
+                            <span>Актуальний опис</span>
+                            <span>Швидко зв'язались</span>
+                            <span>Швидко відправили</span>
+                            <span>Ввічливий продавець</span>
+                            <span>Актуальна ціна</span>
+                            <span>Товар був у наявності</span>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </section>
 
@@ -152,10 +234,10 @@
                     <h2>Слідкуйте за нами в Instagram</h2>
                 </div>
                 <div class="insta-grid">
-                    <div class="insta-item"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=500&q=80" alt="Insta 1"></div>
-                    <div class="insta-item"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=500&q=80" alt="Insta 2"></div>
-                    <div class="insta-item"><img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=500&q=80" alt="Insta 3"></div>
-                    <div class="insta-item"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=500&q=80" alt="Insta 4"></div>
+                    <div class="insta-item"><img src="images/panels/photo_2026-08-12_20-21-13.jpg" alt="М'які панелі MioForm"></div>
+                    <div class="insta-item"><img src="images/sofas/photo_2026-08-12_20-37-26.jpg" alt="Диван MioForm"></div>
+                    <div class="insta-item"><img src="images/beds/photo_2026-08-12_20-47-24.jpg" alt="Ліжко MioForm"></div>
+                    <div class="insta-item"><img src="images/panels/photo_2026-08-12_20-47-20.jpg" alt="Стінова панель MioForm"></div>
                 </div>
                 <div style="text-align: center; margin-top: 30px;">
                     <a href="https://www.instagram.com/master.puf/" target="_blank" class="btn btn-dark"><i class="fab fa-instagram"></i> Перейти в Instagram</a>
