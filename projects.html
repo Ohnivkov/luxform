@@ -8,75 +8,220 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <style>
+        .projects-hero {
+            padding: 140px 0 60px;
+            background: linear-gradient(180deg, #f7f7f7 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .projects-hero::before {
+            content: "";
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 320px;
+            height: 320px;
+            border: 1px solid rgba(0,0,0,0.06);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .projects-hero::after {
+            content: "";
+            position: absolute;
+            bottom: -40px;
+            left: -40px;
+            width: 180px;
+            height: 180px;
+            border: 1px solid rgba(0,0,0,0.05);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .projects-hero .sub {
+            display: inline-block;
+            margin-bottom: 14px;
+            padding: 6px 14px;
+            background: #111;
+            color: #fff;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            border-radius: 2px;
+        }
+        .projects-hero h1 {
+            font-size: clamp(28px, 4vw, 44px);
+            font-weight: 800;
+            margin-bottom: 18px;
+            line-height: 1.15;
+            max-width: 700px;
+        }
+        .projects-hero .lead {
+            font-size: 16px;
+            color: #555;
+            max-width: 640px;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+        .projects-hero .lead-strong {
+            font-size: 15px;
+            color: #222;
+            max-width: 640px;
+            line-height: 1.65;
+            margin-bottom: 28px;
+            font-weight: 500;
+        }
+        .projects-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            max-width: 780px;
+            margin-top: 8px;
+        }
+        .projects-features li {
+            list-style: none;
+            font-size: 14px;
+            color: #222;
+            padding: 16px 18px 16px 44px;
+            position: relative;
+            line-height: 1.45;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            border-radius: 6px;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            cursor: default;
+        }
+        .projects-features li:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+            border-color: #111;
+        }
+        .projects-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            background: #111;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
         .filter-buttons {
             display: flex;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
             flex-wrap: wrap;
-            margin-bottom: 40px;
+            margin-bottom: 48px;
         }
         .filter-btn {
             background: transparent;
-            border: 1px solid var(--border-color, #e0e0e0);
-            padding: 10px 20px;
+            border: 1px solid #ddd;
+            padding: 11px 22px;
             font-family: inherit;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
+            border-radius: 2px;
         }
         .filter-btn.active, .filter-btn:hover {
-            background: var(--text-dark, #111);
+            background: #111;
             color: #fff;
-            border-color: var(--text-dark, #111);
+            border-color: #111;
         }
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 36px;
         }
         .portfolio-card {
-            border: 1px solid var(--border-color, #eee);
             background: #fff;
             overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
             opacity: 1;
+            border: none;
         }
         .portfolio-card.hide {
             display: none;
             opacity: 0;
         }
         .portfolio-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+        .portfolio-img-wrap {
+            position: relative;
+            overflow: hidden;
+            background: #f0f0f0;
         }
         .portfolio-img {
             width: 100%;
-            height: 280px;
+            height: 420px;
             object-fit: cover;
             display: block;
+            transition: transform 0.5s ease;
+        }
+        .portfolio-card:hover .portfolio-img {
+            transform: scale(1.04);
         }
         .portfolio-body {
-            padding: 25px;
-        }
-        .portfolio-cat {
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--text-muted, #888);
-            margin-bottom: 8px;
-            display: block;
+            padding: 22px 4px 8px;
         }
         .portfolio-title {
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            letter-spacing: 0.2px;
         }
         .portfolio-desc {
-            font-size: 14px;
-            color: #555;
-            line-height: 1.5;
+            font-size: 13.5px;
+            color: #666;
+            line-height: 1.55;
+        }
+        @media (max-width: 900px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .portfolio-img {
+                height: 280px;
+            }
+            .projects-features {
+                grid-template-columns: 1fr;
+            }
+            .projects-hero {
+                padding: 110px 0 36px;
+            }
+            .projects-hero h1 {
+                font-size: 24px;
+            }
+            .projects-hero .lead {
+                font-size: 14px;
+                margin-bottom: 16px;
+            }
+            .filter-buttons {
+                gap: 6px;
+                margin-bottom: 28px;
+            }
+            .filter-btn {
+                padding: 9px 14px;
+                font-size: 11px;
+            }
+            .portfolio-body {
+                padding: 16px 2px 4px;
+            }
+        }
+        @media (max-width: 480px) {
+            .portfolio-img {
+                height: 220px;
+            }
         }
     </style>
 </head>
@@ -85,10 +230,7 @@
     <!-- Header -->
     <header class="header">
         <div class="container header-container">
-            <a href="index.html" class="logo logo-brand">
-                <span class="logo-main"><strong>MIO</strong><span>FORM</span></span>
-                <span class="logo-sub">АВТОРСЬКА МАЙСТЕРНЯ | CUSTOM UPHOLSTERED FURNITURE</span>
-            </a>
+            <a href="index.html" class="logo logo-brand"><img src="images/logo.png" alt="MIOFORM" class="logo-img"></a>
             <button class="mobile-btn" onclick="toggleNav()">☰</button>
             <nav class="nav" id="nav">
                 <a href="index.html">Головна</a>
@@ -100,11 +242,18 @@
     </header>
 
     <!-- Hero -->
-    <section class="hero" style="padding: 160px 0 60px;">
+    <section class="projects-hero">
         <div class="container">
             <span class="sub">Портфоліо майстерні</span>
             <h1>Наші реалізовані проєкти</h1>
-            <p>Авторські м'які меблі, стінові панелі, ліжка та дивани, виготовлені за індивідуальними кресленнями з преміальних матеріалів.</p>
+            <p class="lead">Авторські мʼякі меблі, стінові панелі, ліжка та дивани за індивідуальними кресленнями з преміальних матеріалів.</p>
+            <p class="lead-strong">Будучи виробниками, ми створюємо не лише класичні меблі, а й ексклюзивні нестандартні вироби в тканині та шкірі:</p>
+            <ul class="projects-features">
+                <li>Дизайнерські мʼякі полиці під вино</li>
+                <li>Дверні ручки в шкіряному оздобленні</li>
+                <li>Мʼякі трубки та елементи для гардеробних</li>
+                <li>Будь-які нестандартні рішення за ескізами</li>
+            </ul>
         </div>
     </section>
 
@@ -126,99 +275,88 @@
 
                 <!-- ========== М'які панелі ========== -->
                 <div class="portfolio-card" data-cat="panels">
-                    <img src="images/panels/photo_2024-02-20_09-41-58.jpg" alt="М'яка стінова панель" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/panels/photo_2024-02-20_09-41-58.jpg" alt="М'яка стінова панель" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">М'які панелі</span>
                         <h3 class="portfolio-title">Стінова панель у спальню</h3>
                         <p class="portfolio-desc">Індивідуальна м'яка панель з преміальної тканини, точні розміри під нішу та безшовний монтаж.</p>
                     </div>
                 </div>
 
                 <div class="portfolio-card" data-cat="panels">
-                    <img src="images/panels/photo_2024-07-22_22-48-25.jpg" alt="Геометрична стінова панель" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/panels/photo_2024-07-22_22-48-25.jpg" alt="Геометрична стінова панель" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">М'які панелі</span>
                         <h3 class="portfolio-title">Геометрична панель з рельєфом</h3>
                         <p class="portfolio-desc">Об'ємна стінова композиція з чіткими лініями, акустичним ефектом і багатим відтінком тканини.</p>
                     </div>
                 </div>
 
                 <div class="portfolio-card" data-cat="panels">
-                    <img src="images/panels/photo_2024-07-22_22-48-38.jpg" alt="М'яка панель для кабінету" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/panels/photo_2024-07-22_22-48-38.jpg" alt="М'яка панель для кабінету" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">М'які панелі</span>
                         <h3 class="portfolio-title">Панель для робочого кабінету</h3>
                         <p class="portfolio-desc">Стриманий дизайн, якісне наповнення та ідеальна посадка під архітектуру приміщення.</p>
                     </div>
                 </div>
 
                 <div class="portfolio-card" data-cat="panels">
-                    <img src="images/panels/photo_2025-07-16_13-43-57.jpg" alt="Стінова панель з підсвіткою" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/panels/photo_2025-07-16_13-43-57.jpg" alt="Стінова панель з підсвіткою" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">М'які панелі</span>
                         <h3 class="portfolio-title">Панель з інтегрованим освітленням</h3>
                         <p class="portfolio-desc">М'яка стіна з акцентною підсвіткою — створює атмосферу та підкреслює текстуру тканини.</p>
                     </div>
                 </div>
 
                 <div class="portfolio-card" data-cat="panels">
-                    <img src="images/panels/photo_2025-09-03_13-25-41.jpg" alt="Велика стінова панель" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/panels/photo_2025-09-03_13-25-41.jpg" alt="Велика стінова панель" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">М'які панелі</span>
                         <h3 class="portfolio-title">Масштабна стінова композиція</h3>
                         <p class="portfolio-desc">Велика площа покриття, єдина фактура та професійний монтаж без видимих стиків.</p>
                     </div>
                 </div>
 
                 <div class="portfolio-card" data-cat="panels">
-                    <img src="images/panels/photo_2025-12-13_12-01-30.jpg" alt="М'яка панель у сучасному інтер'єрі" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/panels/photo_2025-12-13_12-01-30.jpg" alt="М'яка панель у сучасному інтер'єрі" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">М'які панелі</span>
                         <h3 class="portfolio-title">Сучасна панель у мінімалістичному стилі</h3>
                         <p class="portfolio-desc">Чисті лінії, преміальна тканина та бездоганна геометрія для сучасних інтер'єрів.</p>
                     </div>
                 </div>
 
                 <div class="portfolio-card" data-cat="panels">
-                    <img src="images/panels/photo_2026-01-04_12-27-52.jpg" alt="Стінова панель з стьобкою" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/panels/photo_2026-01-04_12-27-52.jpg" alt="Стінова панель з стьобкою" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">М'які панелі</span>
                         <h3 class="portfolio-title">Панель з декоративним стьобуванням</h3>
                         <p class="portfolio-desc">Виразна стьобка, м'який об'єм і довговічні матеріали — акцентна стіна для спальні чи вітальні.</p>
                     </div>
                 </div>
 
                 <div class="portfolio-card" data-cat="panels">
-                    <img src="images/panels/photo_2026-08-12_20-21-13.jpg" alt="М'яка стінова панель" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/panels/photo_2026-08-12_20-21-13.jpg" alt="М'яка стінова панель" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">М'які панелі</span>
                         <h3 class="portfolio-title">Індивідуальна панель під проєкт</h3>
                         <p class="portfolio-desc">Виготовлення за кресленнями клієнта: точні розміри, підбір тканини та професійна установка.</p>
                     </div>
                 </div>
 
                 <div class="portfolio-card" data-cat="panels">
-                    <img src="images/panels/photo_2026-08-12_20-47-20.jpg" alt="Стінова панель у спальні" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/panels/photo_2026-08-12_20-47-20.jpg" alt="Стінова панель у спальні" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">М'які панелі</span>
                         <h3 class="portfolio-title">Панель-узголів'я для спальні</h3>
                         <p class="portfolio-desc">Висока м'яка стіна, що замінює класичне узголів'я, з м'яким дотиком і акустичним комфортом.</p>
                     </div>
                 </div>
 
                 <div class="portfolio-card" data-cat="panels">
-                    <img src="images/panels/photo_2026-08-12_20-47-23.jpg" alt="Деталь стінової панелі" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/panels/photo_2026-08-12_20-47-23.jpg" alt="Деталь стінової панелі" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">М'які панелі</span>
                         <h3 class="portfolio-title">Фактурна панель з об'ємом</h3>
                         <p class="portfolio-desc">Рельєфна поверхня, якісне наповнення та увага до кожної деталі оббивки.</p>
                     </div>
                 </div>
 
                 <div class="portfolio-card" data-cat="panels">
-                    <img src="images/panels/photo_2026-08-12_20-52-36.jpg" alt="М'яка панель в інтер'єрі" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/panels/photo_2026-08-12_20-52-36.jpg" alt="М'яка панель в інтер'єрі" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">М'які панелі</span>
                         <h3 class="portfolio-title">Стінова панель у готовому інтер'єрі</h3>
                         <p class="portfolio-desc">Гармонійне поєднання з меблями та освітленням — фінальний штрих авторського простору.</p>
                     </div>
@@ -226,72 +364,64 @@
 
                 <!-- ========== Дивани ========== -->
                 <div class="portfolio-card" data-cat="sofas">
-                    <img src="images/sofas/photo_2024-07-05_15-26-43.jpg" alt="Кутовий диван" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/sofas/photo_2024-07-05_15-26-43.jpg" alt="Кутовий диван" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">Дивани</span>
                         <h3 class="portfolio-title">Кутовий диван на замовлення</h3>
                         <p class="portfolio-desc">Індивідуальні розміри, преміальна оббивка та зручна посадка для щоденного комфорту.</p>
                     </div>
                 </div>
 
                 <div class="portfolio-card" data-cat="sofas">
-                    <img src="images/sofas/photo_2025-12-05_12-41-55.jpg" alt="Модульний диван" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/sofas/photo_2025-12-05_12-41-55.jpg" alt="Модульний диван" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">Дивани</span>
                         <h3 class="portfolio-title">Модульний диван</h3>
                         <p class="portfolio-desc">Гнучка конфігурація модулів, якісні наповнювачі та можливість змінювати розташування.</p>
                     </div>
                 </div>
 
                 <div class="portfolio-card" data-cat="sofas">
-                    <img src="images/sofas/photo_2026-08-12_20-37-26.jpg" alt="Диван у вітальню" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/sofas/photo_2026-08-12_20-37-26.jpg" alt="Диван у вітальню" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">Дивани</span>
                         <h3 class="portfolio-title">Диван для вітальні</h3>
                         <p class="portfolio-desc">Елегантна форма, глибока посадка та тканина з високою зносостійкістю.</p>
                     </div>
                 </div>
 
                 <div class="portfolio-card" data-cat="sofas">
-                    <img src="images/sofas/photo_2026-08-12_20-39-17.jpg" alt="Прямий диван" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/sofas/photo_2026-08-12_20-39-17.jpg" alt="Прямий диван" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">Дивани</span>
                         <h3 class="portfolio-title">Прямий диван з м'якими підлокітниками</h3>
                         <p class="portfolio-desc">Класична лінія, комфортні підлокітники та міцний каркас з гарантією.</p>
                     </div>
                 </div>
 
                 <div class="portfolio-card" data-cat="sofas">
-                    <img src="images/sofas/photo_2026-08-12_20-40-40.jpg" alt="Диван з стьобкою" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/sofas/photo_2026-08-12_20-40-40.jpg" alt="Диван з стьобкою" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">Дивани</span>
                         <h3 class="portfolio-title">Диван з декоративним стьобуванням</h3>
                         <p class="portfolio-desc">Виразна стьобка, преміальний велюр або букле — акцентна модель для сучасного інтер'єру.</p>
                     </div>
                 </div>
 
                 <div class="portfolio-card" data-cat="sofas">
-                    <img src="images/sofas/photo_2026-08-12_20-57-46.jpg" alt="Кутовий диван Luxe" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/sofas/photo_2026-08-12_20-57-46.jpg" alt="Кутовий диван Luxe" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">Дивани</span>
                         <h3 class="portfolio-title">Кутовий диван преміум</h3>
                         <p class="portfolio-desc">Глибокий колір, ромбоподібна стьобка та вишукані деталі — модель для тих, хто обирає найкраще.</p>
                     </div>
                 </div>
 
                 <div class="portfolio-card" data-cat="sofas">
-                    <img src="images/sofas/photo_2026-08-12_20-57-46_2.jpg" alt="Деталь дивана" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/sofas/photo_2026-08-12_20-57-46_2.jpg" alt="Деталь дивана" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">Дивани</span>
                         <h3 class="portfolio-title">Диван з акцентною оббивкою</h3>
                         <p class="portfolio-desc">Увага до деталей оббивки, якісні шви та комфортна ергономіка сидіння.</p>
                     </div>
                 </div>
 
                 <div class="portfolio-card" data-cat="sofas">
-                    <img src="images/sofas/photo_2026-08-12_20-57-46_3.jpg" alt="Диван у інтер'єрі" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/sofas/photo_2026-08-12_20-57-46_3.jpg" alt="Диван у інтер'єрі" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">Дивани</span>
                         <h3 class="portfolio-title">Диван у готовому просторі</h3>
                         <p class="portfolio-desc">Гармонійне поєднання з інтер'єром, зручність і довговічність у щоденному використанні.</p>
                     </div>
@@ -299,99 +429,88 @@
 
                 <!-- ========== Ліжка ========== -->
                 <div class="portfolio-card" data-cat="beds">
-                    <img src="images/beds/photo_2026-08-12_17-13-47.jpg" alt="Двоспальне ліжко" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/beds/photo_2026-08-12_17-13-47.jpg" alt="Двоспальне ліжко" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">Ліжка</span>
                         <h3 class="portfolio-title">Двоспальне ліжко з м'яким узголів'ям</h3>
                         <p class="portfolio-desc">Індивідуальні розміри, ортопедичний каркас і м'яке узголів'я з преміальної тканини.</p>
                     </div>
                 </div>
 
                 <div class="portfolio-card" data-cat="beds">
-                    <img src="images/beds/photo_2026-08-12_17-13-48.jpg" alt="Ліжко з високим узголів'ям" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/beds/photo_2026-08-12_17-13-48.jpg" alt="Ліжко з високим узголів'ям" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">Ліжка</span>
                         <h3 class="portfolio-title">Ліжко з високим м'яким узголів'ям</h3>
                         <p class="portfolio-desc">Високе узголів'я, міцний каркас і можливість поєднати зі стіновою панеллю.</p>
                     </div>
                 </div>
 
                 <div class="portfolio-card" data-cat="beds">
-                    <img src="images/beds/photo_2026-08-12_20-47-24.jpg" alt="Спальне ліжко" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/beds/photo_2026-08-12_20-47-24.jpg" alt="Спальне ліжко" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">Ліжка</span>
                         <h3 class="portfolio-title">Ліжко з панеллю-узголів'ям</h3>
                         <p class="portfolio-desc">Єдиний ансамбль ліжка та м'якої стіни — цілісний вигляд і максимальний комфорт.</p>
                     </div>
                 </div>
 
                 <div class="portfolio-card" data-cat="beds">
-                    <img src="images/beds/photo_2026-08-12_20-56-01.jpg" alt="Ліжко на замовлення" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/beds/photo_2026-08-12_20-56-01.jpg" alt="Ліжко на замовлення" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">Ліжка</span>
                         <h3 class="portfolio-title">Авторське ліжко за кресленнями</h3>
                         <p class="portfolio-desc">Повна відповідність дизайн-проєкту: розміри, форма, тканина та колір на вибір.</p>
                     </div>
                 </div>
 
                 <div class="portfolio-card" data-cat="beds">
-                    <img src="images/beds/photo_2026-08-12_20-56-02.jpg" alt="Ліжко з стьобаним узголів'ям" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/beds/photo_2026-08-12_20-56-02.jpg" alt="Ліжко з стьобаним узголів'ям" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">Ліжка</span>
                         <h3 class="portfolio-title">Ліжко з стьобаним узголів'ям</h3>
                         <p class="portfolio-desc">Декоративна стьобка, м'який об'єм і надійний підйомний механізм за бажанням.</p>
                     </div>
                 </div>
 
                 <div class="portfolio-card" data-cat="beds">
-                    <img src="images/beds/photo_2026-08-12_20-56-02_2.jpg" alt="Деталь узголів'я ліжка" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/beds/photo_2026-08-12_20-56-02_2.jpg" alt="Деталь узголів'я ліжка" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">Ліжка</span>
                         <h3 class="portfolio-title">Ліжко з акцентною оббивкою</h3>
                         <p class="portfolio-desc">Увага до швів і фактури, преміальні матеріали та довговічна конструкція.</p>
                     </div>
                 </div>
 
                 <div class="portfolio-card" data-cat="beds">
-                    <img src="images/beds/photo_2026-08-12_20-56-04.jpg" alt="Спальне ліжко в інтер'єрі" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/beds/photo_2026-08-12_20-56-04.jpg" alt="Спальне ліжко в інтер'єрі" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">Ліжка</span>
                         <h3 class="portfolio-title">Ліжко в сучасному інтер'єрі</h3>
                         <p class="portfolio-desc">Гармонійне поєднання з панелями та освітленням — завершений спальний простір.</p>
                     </div>
                 </div>
 
                 <div class="portfolio-card" data-cat="beds">
-                    <img src="images/beds/photo_2026-08-12_20-56-05.jpg" alt="Ліжко з м'якою стіною" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/beds/photo_2026-08-12_20-56-05.jpg" alt="Ліжко з м'якою стіною" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">Ліжка</span>
                         <h3 class="portfolio-title">Ліжко + м'яка стінова панель</h3>
                         <p class="portfolio-desc">Комплексне рішення: ліжко та панель в одному стилі й кольорі з єдиним монтажем.</p>
                     </div>
                 </div>
 
                 <div class="portfolio-card" data-cat="beds">
-                    <img src="images/beds/photo_2026-08-12_20-56-07.jpg" alt="Двоспальне ліжко преміум" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/beds/photo_2026-08-12_20-56-07.jpg" alt="Двоспальне ліжко преміум" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">Ліжка</span>
                         <h3 class="portfolio-title">Преміум ліжко з ортопедичним каркасом</h3>
                         <p class="portfolio-desc">Міцний каркас, якісне наповнення та можливість підібрати тканину з каталогу 400+ зразків.</p>
                     </div>
                 </div>
 
                 <div class="portfolio-card" data-cat="beds">
-                    <img src="images/beds/photo_2026-08-12_20-56-08.jpg" alt="Ліжко з високою панеллю" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/beds/photo_2026-08-12_20-56-08.jpg" alt="Ліжко з високою панеллю" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">Ліжка</span>
                         <h3 class="portfolio-title">Ліжко з високою стіновою панеллю</h3>
                         <p class="portfolio-desc">Висока м'яка стіна за ліжком створює ефект готельного номера та додатковий акустичний комфорт.</p>
                     </div>
                 </div>
 
                 <div class="portfolio-card" data-cat="beds">
-                    <img src="images/beds/photo_2026-08-12_20-56-15.jpg" alt="Авторське ліжко" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/beds/photo_2026-08-12_20-56-15.jpg" alt="Авторське ліжко" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">Ліжка</span>
                         <h3 class="portfolio-title">Авторське ліжко за індивідуальним проєктом</h3>
                         <p class="portfolio-desc">Від ескізу до монтажу: повний цикл виготовлення під ваш інтер'єр і побажання.</p>
                     </div>
@@ -399,63 +518,56 @@
 
                 <!-- ========== Дитячі ліжка ========== -->
                 <div class="portfolio-card" data-cat="childbeds">
-                    <img src="images/childbeds/photo_2026-08-12_20-56-02.jpg" alt="Дитяче ліжко" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/childbeds/photo_2026-08-12_20-56-02.jpg" alt="Дитяче ліжко" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">Дитячі ліжка</span>
                         <h3 class="portfolio-title">Тематичне дитяче ліжко</h3>
                         <p class="portfolio-desc">Безпечні матеріали, м'які бортики та цікава форма, що подобається дітям.</p>
                     </div>
                 </div>
 
                 <div class="portfolio-card" data-cat="childbeds">
-                    <img src="images/childbeds/photo_2026-08-12_20-56-02_2.jpg" alt="Дитяче ліжко з бортиками" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/childbeds/photo_2026-08-12_20-56-02_2.jpg" alt="Дитяче ліжко з бортиками" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">Дитячі ліжка</span>
                         <h3 class="portfolio-title">Дитяче ліжко з м'якими бортиками</h3>
                         <p class="portfolio-desc">Захисні бортики, ортопедична основа та приємна на дотик тканина.</p>
                     </div>
                 </div>
 
                 <div class="portfolio-card" data-cat="childbeds">
-                    <img src="images/childbeds/photo_2026-08-12_20-56-04.jpg" alt="Дитяче ліжко в кімнаті" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/childbeds/photo_2026-08-12_20-56-04.jpg" alt="Дитяче ліжко в кімнаті" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">Дитячі ліжка</span>
                         <h3 class="portfolio-title">Ліжко для дитячої кімнати</h3>
                         <p class="portfolio-desc">Індивідуальний розмір і дизайн під інтер'єр дитячої, безпечна конструкція.</p>
                     </div>
                 </div>
 
                 <div class="portfolio-card" data-cat="childbeds">
-                    <img src="images/childbeds/photo_2026-08-12_20-56-05.jpg" alt="Дитяче ліжко з панеллю" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/childbeds/photo_2026-08-12_20-56-05.jpg" alt="Дитяче ліжко з панеллю" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">Дитячі ліжка</span>
                         <h3 class="portfolio-title">Дитяче ліжко з м'якою стіною</h3>
                         <p class="portfolio-desc">М'яка стіна за ліжком захищає від ударів і створює затишний куточок для сну.</p>
                     </div>
                 </div>
 
                 <div class="portfolio-card" data-cat="childbeds">
-                    <img src="images/childbeds/photo_2026-08-12_20-56-07.jpg" alt="Дитяче ліжко преміум" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/childbeds/photo_2026-08-12_20-56-07.jpg" alt="Дитяче ліжко преміум" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">Дитячі ліжка</span>
                         <h3 class="portfolio-title">Преміум ліжко для дитини</h3>
                         <p class="portfolio-desc">Якісні матеріали, міцний каркас і можливість вибору кольору та форми.</p>
                     </div>
                 </div>
 
                 <div class="portfolio-card" data-cat="childbeds">
-                    <img src="images/childbeds/photo_2026-08-12_20-56-08.jpg" alt="Дитяче ліжко з високою панеллю" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/childbeds/photo_2026-08-12_20-56-08.jpg" alt="Дитяче ліжко з високою панеллю" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">Дитячі ліжка</span>
                         <h3 class="portfolio-title">Ліжко з високою м'якою панеллю</h3>
                         <p class="portfolio-desc">Висока панель і м'які елементи — безпека та комфорт для найменших.</p>
                     </div>
                 </div>
 
                 <div class="portfolio-card" data-cat="childbeds">
-                    <img src="images/childbeds/photo_2026-08-12_20-56-15.jpg" alt="Авторське дитяче ліжко" class="portfolio-img">
+                    <div class="portfolio-img-wrap"><img src="images/childbeds/photo_2026-08-12_20-56-15.jpg" alt="Авторське дитяче ліжко" class="portfolio-img"></div>
                     <div class="portfolio-body">
-                        <span class="portfolio-cat">Дитячі ліжка</span>
                         <h3 class="portfolio-title">Авторське дитяче ліжко за проєктом</h3>
                         <p class="portfolio-desc">Реалізація будь-якої ідеї: від ракети до каретної стьобки — за вашим ескізом або референсом.</p>
                     </div>
@@ -466,7 +578,7 @@
             <!-- Перехід в Instagram -->
             <div style="text-align: center; margin-top: 50px;">
                 <span class="sub" style="display: block; margin-bottom: 10px;">Хочете побачити більше процесів та відеооглядів?</span>
-                <a href="https://www.instagram.com/master.puf/" target="_blank" class="btn btn-dark">
+                <a href="https://www.instagram.com/mio_form?utm_source=qr" target="_blank" class="btn btn-dark">
                     <i class="fab fa-instagram" style="margin-right: 8px;"></i> Дивитися всі роботи в Instagram
                 </a>
             </div>
@@ -475,49 +587,47 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer-main">
-        <div class="container">
-            <div class="footer-grid">
+            <footer class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
 
-                <div>
-                    <a href="index.html" class="footer-logo">MIO<span>FORM</span></a>
-                    <p class="footer-desc">Крафтова майстерня з виготовлення м'яких меблів, пуфів, банкеток, диванів та стінових панелей за індивідуальними кресленнями.</p>
+                    <div>
+                        <a href="index.html" class="footer-logo logo-brand"><img src="images/logo-white.png" alt="MIOFORM" class="logo-img"></a>
+                        <p class="footer-desc">Крафтова майстерня з виготовлення м'яких меблів, пуфів, банкеток та стінових панелей за індивідуальними кресленнями.</p>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Навігація</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Головна</a></li>
+                            <li><a href="about.html">Про нас</a></li>
+                            <li><a href="projects.html">Реалізовані проєкти</a></li>
+                            <li><a href="contacts.html">Контакти</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h4>Зв'яжіться</h4>
+                        <ul class="footer-links">
+                            <li><a href="https://www.instagram.com/mio_form?utm_source=qr" target="_blank" rel="noopener">Instagram</a></li>
+                            <li><a href="mailto:mioform.ua@gmail.com">E-mail</a></li>
+                            <li><a href="https://t.me" target="_blank" rel="noopener">Telegram</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col footer-contacts">
+                        <h4>Контакти</h4>
+                        <a href="tel:+380967488227">+38 096 748 82 27</a>
+                        <a href="mailto:mioform.ua@gmail.com">mioform.ua@gmail.com</a>
+                    </div>
+
                 </div>
 
-                <div class="footer-col">
-                    <h4>Навігація</h4>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Головна</a></li>
-                        <li><a href="about.html">Про майстерню</a></li>
-                        <li><a href="projects.html">Портфоліо</a></li>
-                        <li><a href="contacts.html">Контакти</a></li>
-                    </ul>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 MIOFORM. Всі права захищені.</p>
                 </div>
-
-                <div class="footer-col">
-                    <h4>Продукція</h4>
-                    <ul class="footer-links">
-                        <li><a href="projects.html">Дивани</a></li>
-                        <li><a href="projects.html">М'які панелі</a></li>
-                        <li><a href="projects.html">Ліжка на замовлення</a></li>
-                        <li><a href="projects.html">Пуфи та банкетки</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-col footer-contacts">
-                    <h4>Зв'язок</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> пр-т Леся Курбаса, 2Б, Київ, 03162</p>
-                    <p><i class="fas fa-phone-alt"></i> +380 (XX) XXX-XX-XX</p>
-                    <p><i class="fab fa-instagram"></i> Direct: @mioform.ua</p>
-                </div>
-
             </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2026 MIOFORM. Всі права захищені.</p>
-            </div>
-        </div>
-    </footer>
+        </footer>
 
     <script>
         function toggleNav(){
